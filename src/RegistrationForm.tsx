@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
+import { useMutation } from "@apollo/client";
+import CreateUser from "./graphql/CreateUser.mutation.graphql";
 
 export function RegistrationForm() {
   const { register, handleSubmit } = useForm();
+  const [createUser, { data }] = useMutation(CreateUser);
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = (createUserInput: any) => {
+    createUser({
+      variables: {
+        createUserInput,
+      },
+    });
   };
 
   return (

@@ -1,7 +1,8 @@
-query ListUsers {
+query GetUsers {
   users {
     id
     login
+    email
     brews {
       date
       tea {
