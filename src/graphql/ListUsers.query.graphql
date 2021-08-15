@@ -1,0 +1,12 @@
+query ListUsers {
+  users {
+    id
+    login
+    brews {
+      date
+      tea {
+        name
+      }
+    }
+  }
+}
