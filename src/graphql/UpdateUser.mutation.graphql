@@ -1,8 +1,7 @@
+#import "./User.fragment.graphql"
+
 mutation UpdateUser($updateUserInput: UpdateUserInput) {
   updateUser(updateUserInput: $updateUserInput) {
-    id
-    login
-    email
-    name
+    ...UserBaseData
   }
 }

@@ -1,9 +1,8 @@
+#import "./User.fragment.graphql"
+
 query GetUsers {
   users {
-    id
-    login
-    email
-    name
+    ...UserBaseData
     brews {
       date
       tea {

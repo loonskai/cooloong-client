@@ -6,7 +6,7 @@ import produce from "immer";
 
 export function RegistrationForm() {
   const { register, handleSubmit } = useForm();
-  const [createUser, { data }] = useMutation(CreateUserMutation, {
+  const [createUser] = useMutation(CreateUserMutation, {
     update(cache, result) {
       const getUsersQueryResult = cache.readQuery<any>({
         query: GetUsersQuery,
@@ -22,6 +22,13 @@ export function RegistrationForm() {
     createUser({
       variables: {
         createUserInput,
+      },
+      optimisticResponse: {
+        createUser: {
+          id: Math.random(),
+          login: createUserInput.login,
+          name: createUserInput.name,
+        },
       },
     });
   };

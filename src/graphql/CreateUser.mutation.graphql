@@ -1,7 +1,7 @@
+#import "./User.fragment.graphql"
+
 mutation CreateUser($createUserInput: CreateUserInput) {
   createUser(createUserInput: $createUserInput) {
-    id
-    login
-    name
+    ...UserBaseData
   }
 }

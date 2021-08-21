@@ -1,0 +1,6 @@
+fragment UserBaseData on User {
+  id
+  login
+  email
+  login
+}
