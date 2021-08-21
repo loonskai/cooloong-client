@@ -3,6 +3,7 @@ query GetUsers {
     id
     login
     email
+    name
     brews {
       date
       tea {
